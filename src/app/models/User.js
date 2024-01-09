@@ -1,4 +1,5 @@
 import Sequelize, { Model } from "sequelize";
+import { define } from "../../config/database";
 
 class User extends Model {
   static init(sequelize) {
@@ -11,6 +12,9 @@ class User extends Model {
       },
       {
         sequelize,
+        modelName: "User",
+        tableName: "users",
+        freezeTableName: true,
       }
     );
   }
