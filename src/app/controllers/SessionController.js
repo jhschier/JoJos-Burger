@@ -9,11 +9,13 @@ class SessionController {
       password: Yup.string().required(),
     });
 
-    if (!(await schema.isValid(request.body))) {
+    const userEmailOrPasswordIncorrect = () => {
       return response
-        .status(400)
-        .json({ error: "Wrong email or password. Try again." });
-    }
+        .status(401)
+        .json({ error: "Wrong email or password, please try again." });
+    };
+
+    if (!(await schema.isValid(request.body))) userEmailOrPasswordIncorrect();
 
     const { email, password } = request.body;
 
@@ -21,12 +23,16 @@ class SessionController {
       where: { email },
     });
 
-    if (!user) {
-      return response
-        .status(400)
-        .json({ error: "Wrong email or password. Try again." });
-    }
-    return response.json(user);
+    if (!user) userEmailOrPasswordIncorrect();
+
+    if (!(await user.checkPassword(password))) userEmailOrPasswordIncorrect();
+
+    return response.json({
+      id: user.id,
+      email,
+      name: user.name,
+      admin: user.admin,
+    });
   }
 }
 
