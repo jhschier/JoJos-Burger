@@ -8,6 +8,10 @@ class ProductController {
       category: Yup.string().required(),
     });
 
+    const file = request.file;
+
+    console.log(file);
+
     try {
       await schema.validateSync(request.body, { abortEarly: false });
     } catch (err) {
