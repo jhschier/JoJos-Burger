@@ -1,6 +1,7 @@
 import express from "express";
 import routes from "./routes";
-import './database'
+import "./database";
+import { resolve } from "path";
 
 class App {
   constructor() {
@@ -15,6 +16,10 @@ class App {
 
   routes() {
     this.app.use(routes);
+    this.app.use(
+      "/product-file",
+      express.static(resolve(__dirname, "..", "uploads"))
+    );
   }
 }
 
