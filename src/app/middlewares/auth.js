@@ -9,7 +9,6 @@ export default (request, response, next) => {
   }
 
   const token = authToken.split(" ")[1];
-  console.log(token);
 
   try {
     jwt.verify(token, authConfig.secret, function (err, decoded) {
@@ -17,8 +16,8 @@ export default (request, response, next) => {
         throw new Error();
       }
 
-      console.log(decoded);
-      request.userID = decoded.id;
+      request.userId = Number(decoded.id);
+      request.userName = decoded.name;
       return next();
     });
   } catch {
