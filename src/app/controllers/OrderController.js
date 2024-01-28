@@ -1,6 +1,9 @@
 import * as Yup from "yup";
+
 import Product from "../models/Product";
 import Category from "../models/Category";
+import User from "../models/User";
+
 import Order from "../schemas/Order";
 
 class OrderController {
@@ -82,6 +85,13 @@ class OrderController {
     } catch (err) {
       return response.status(400).json({ error: err.errors });
     }
+
+    const { admin: isAdmin } = await User.findByPk(request.userId);
+
+    if (!isAdmin) {
+      return response.status(401).json({ error: "User not authorized." });
+    }
+
     const { id } = request.params;
     const { status } = request.body;
 
