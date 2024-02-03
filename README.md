@@ -34,16 +34,6 @@ The JoJo's Burger Backend serves as the backbone for a comprehensive restaurant 
 
 ---
 
-## Project Structure
-- **Routes:** Define API endpoints and their corresponding controllers.
-- **Controllers:** Implement the logic for handling requests and generating responses.
-- **Models:** Define Sequelize models for PostgreSQL database tables and MongoDB schemas for Mongoose.
-- **Schemas:** Outline MongoDB schemas for order-related data.
-- **Middlewares:** Implement middleware functions, including authentication.
-- **Config:** Configuration files, encompassing Multer settings and authentication configurations.
-
----
-
 ## Getting Started
 1. **Clone the repository:** `git clone https://github.com/jhschier/JoJos-Burger.git`
 2. **Install dependencies:** `yarn install`
