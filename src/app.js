@@ -1,5 +1,7 @@
-const express = require("express");
-const routes = require("./routes");
+import express from "express";
+import routes from "./routes";
+import "./database";
+import { resolve } from "path";
 
 class App {
   constructor() {
@@ -10,6 +12,16 @@ class App {
 
   middlewares() {
     this.app.use(express.json());
+
+    this.app.use(
+      "/product-file",
+      express.static(resolve(__dirname, "..", "uploads"))
+    );
+
+    this.app.use(
+      "/category-file",
+      express.static(resolve(__dirname, "..", "uploads"))
+    );
   }
 
   routes() {
@@ -17,4 +29,4 @@ class App {
   }
 }
 
-module.exports = new App().app;
+export default new App().app;
