@@ -32,7 +32,7 @@ class UserController {
     });
 
     if (userExists) {
-      return response.status(400).json({ error: "Email already in use." });
+      return response.status(409).json({ error: "Email already in use." });
     }
 
     const user = await User.create({
