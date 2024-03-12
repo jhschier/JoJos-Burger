@@ -91,9 +91,9 @@ class CategoryController {
 
     return response.status(200).json({ id, name, path });
   }
-  catch(err) {
-    console.log(err);
-  }
+    catch(err) {
+      console.log(err)
+    }
 }
 
 export default new CategoryController();
