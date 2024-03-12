@@ -95,8 +95,11 @@ class OrderController {
     const { id } = request.params;
     const { status } = request.body;
 
+    try {
     await Order.updateOne({ _id: id }, { status });
-
+  } catch (err) {
+    return response.status(400).json({error: err.message})
+  }
     return response.json({ message: "Status was successfully updated." });
   }
 }
