@@ -2,7 +2,6 @@
   "name": "codeburger",
   "version": "1.0.0",
   "description": "",
-  "type": "module",
   "main": "src/server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -35,7 +34,6 @@
     "eslint-plugin-n": "^15.0.0 || ^16.0.0 ",
     "eslint-plugin-prettier": "^5.1.2",
     "eslint-plugin-promise": "^6.0.0",
-    "eslint-plugin-react": "^7.33.2",
     "nodemon": "^3.0.2",
     "prettier": "^3.1.1",
     "sequelize-cli": "^6.6.2",
