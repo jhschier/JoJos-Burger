@@ -10,8 +10,7 @@ import CategoryController from "./app/controllers/CategoryController.js";
 import OrderController from "./app/controllers/OrderController.js";
 
 import authMiddleware from "./app/middlewares/auth.js";
-import Order from "./app/schemas/Order";
-import Product from "./app/models/Product";
+
 
 const upload = multer(multerConfig);
 const routes = new Router();
