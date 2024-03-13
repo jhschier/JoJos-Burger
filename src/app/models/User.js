@@ -1,5 +1,5 @@
 import Sequelize, { Model } from "sequelize";
-import { define } from "../../config/database";
+
 
 import bcrypt from "bcrypt";
 
