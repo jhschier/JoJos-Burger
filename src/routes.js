@@ -1,7 +1,7 @@
 import { Router } from "express";
 
 import multer from "multer";
-import multerConfig from "./config/multer";
+import multerConfig from "./config/multer.js";
 
 import UserController from "./app/controllers/UserController";
 import SessionController from "./app/controllers/SessionController";
@@ -9,7 +9,7 @@ import ProductController from "./app/controllers/ProductController";
 import CategoryController from "./app/controllers/CategoryController";
 import OrderController from "./app/controllers/OrderController";
 
-import authMiddleware from "./app/middlewares/auth";
+import authMiddleware from "./app/middlewares/auth.js";
 import Order from "./app/schemas/Order";
 import Product from "./app/models/Product";
 
