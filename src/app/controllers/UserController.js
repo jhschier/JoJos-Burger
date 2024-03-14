@@ -13,11 +13,6 @@ class UserController {
       admin: Yup.boolean(),
     });
 
-    // if (!(await schema.isValid(request.body))) {
-    //   return response
-    //     .status(400)
-    //     .json({ error: "Make sure you inserted the right data." });
-    // }
 
     try {
       await schema.validateSync(request.body, { abortEarly: false });
