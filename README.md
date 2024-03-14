@@ -53,10 +53,12 @@ The JoJo's Burger Backend serves as the backbone for a comprehensive restaurant 
   - **POST:** Create a new product.
   - **GET:** Retrieve all products.
   - **PUT:** Update a product.
+  - **DELETE:** Delete a product.
 - **/categories:** 
   - **POST:** Create a new category.
   - **GET:** Retrieve all categories.
   - **PUT:** Update a category.
+  - **DELETE:** Delete a category.
 - **/orders:** 
   - **POST:** Place a new order.
   - **GET:** Retrieve all orders.
