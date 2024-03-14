@@ -115,7 +115,9 @@ class ProductController {
   async delete(request, response) {
     try {
       const { admin: isAdmin } =  await User.findByPk(request.userId)
-     
+      if (!isAdmin) {
+        return response.status(401).json({error: "User not authorized."})
+      }
       const { id } = request.params;
 
       const product = await Product.findByPk(id)
