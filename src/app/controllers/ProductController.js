@@ -111,6 +111,27 @@ class ProductController {
       console.log(err);
     }
   }
+
+  async delete(request, response) {
+    try {
+      const { admin: isAdmin } =  await User.findByPk(request.userId)
+      if (!isAdmin) {
+        return response.status(401).json({error: "User not authorized."})
+      }
+      const { id } = request.params;
+
+      const product = await Product.findByPk(id)
+
+      if (!product) {
+        return response.status(404).json({error: 'Product not found.'})
+      }
+      await product.destroy()
+      return response.status(200).json({ message:"Product deleted successfully."})
+    } catch (err) {
+      console.error(err)
+      return response.status(500).json({error: "Internal Server Error"})
+    }
+  }
 }
 
 export default new ProductController();
