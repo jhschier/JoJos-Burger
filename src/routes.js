@@ -31,6 +31,7 @@ routes.put("/products/:id", upload.single("file"), ProductController.update);
 routes.post("/categories", upload.single("file"), CategoryController.store);
 routes.get("/categories", CategoryController.index);
 routes.put("/categories/:id", upload.single("file"), CategoryController.update);
+routes.delete('/categories/:id', CategoryController.delete)
 
 routes.post("/orders", OrderController.store);
 routes.put("/orders/:id", OrderController.update);
