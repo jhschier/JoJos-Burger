@@ -4,6 +4,7 @@ import "./database/index.js";
 import { resolve } from "path";
 import cors from 'cors'
 
+
 const corsOption = {
   origin: 'https://jojos-burger-front.vercel.app',
   credentials: true,
